@@ -71,7 +71,7 @@ export const frozenFoodsProducts = [
     originalPrice: null,
     unit: "400g",
     inStock: true,
-    image: "/placeholder.svg"
+    image: "/products/frozen/frozen-peas.jpeg"
   },
   {
     id: 3,
@@ -91,7 +91,7 @@ export const frozenFoodsProducts = [
     originalPrice: null,
     unit: "300g",
     inStock: false,
-    image: "/placeholder.svg"
+    image: "/products/frozen/Fish-Fingers.jpg"
   },
   {
     id: 5,
@@ -101,7 +101,7 @@ export const frozenFoodsProducts = [
     originalPrice: 220,
     unit: "1L",
     inStock: true,
-    image: "/placeholder.svg"
+    image: "/products/frozen/vanilla.jpg"
   },
   {
     id: 6,
@@ -111,7 +111,17 @@ export const frozenFoodsProducts = [
     originalPrice: null,
     unit: "500g",
     inStock: true,
-    image: "/placeholder.svg"
+    image: "/products/frozen/frozen-corn.jpg"
+  },
+  {
+    id: 7,
+    name: "Frozen Chicken Precut - 1Kg",
+    description: "Sliced Precut Chicken",
+    price: 375,
+    originalPrice: null,
+    unit: "1 Kg",
+    inStock: true,
+    image: "/products/frozen/Frozen-Chicken-Precut-1kg.jpg"
   }
 ];
 
