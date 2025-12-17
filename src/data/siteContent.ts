@@ -9,15 +9,15 @@ export const siteContent = {
   description: "Quality groceries at affordable prices since 1995",
   
   contact: {
-    phone: "+91 81221 51563",
+    phone: "+91 94455 72664",
     email: "info@sakthivelfoods.com",
-    address: "123 Market Street, Chennai, Tamil Nadu 600001",
+    address: "1, 2nd Main Rd, behind Lady of Perpetual Help Church, Ram Nagar, Nafia Enclave, Dhadeswaram Nagar, Velachery, Chennai, Tamil Nadu 600042",
     hours: "Mon-Sat: 8AM - 9PM, Sun: 9AM - 6PM"
   },
 
   // Enquiry configuration - update these with your actual details
   enquiry: {
-    whatsappNumber: "+918122151563", // WhatsApp Business number
+    whatsappNumber: "+919445572664", // WhatsApp Business number
     email: "orders@sakthivelfoods.com" // Email for enquiries
   },
 
