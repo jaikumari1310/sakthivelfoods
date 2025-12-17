@@ -134,7 +134,7 @@ export const bakingEssentialsProducts = [
     originalPrice: null,
     unit: "1kg",
     inStock: true,
-    image: "/placeholder.svg"
+    image: "/products/frozen/All-Purpose-Flour-Unbleached-5-Kg.jpg"
   },
   {
     id: 2,
@@ -144,7 +144,7 @@ export const bakingEssentialsProducts = [
     originalPrice: null,
     unit: "1kg",
     inStock: true,
-    image: "/placeholder.svg"
+    image: "/products/frozen/Granulated-Sugar-1kg.jpg"
   },
   {
     id: 3,
@@ -154,37 +154,17 @@ export const bakingEssentialsProducts = [
     originalPrice: 55,
     unit: "100g",
     inStock: true,
-    image: "/placeholder.svg"
+    image: "/products/frozen/baking-powrder.jpg"
   },
   {
     id: 4,
-    name: "Cocoa Powder",
+    name: "Chocolate Mousse Instant Dessert Mix",
     description: "Rich Dutch-process cocoa for chocolatey treats",
     price: 120,
     originalPrice: null,
     unit: "200g",
     inStock: true,
-    image: "/placeholder.svg"
-  },
-  {
-    id: 5,
-    name: "Vanilla Extract",
-    description: "Pure vanilla extract for authentic flavor",
-    price: 85,
-    originalPrice: 100,
-    unit: "50ml",
-    inStock: false,
-    image: "/placeholder.svg"
-  },
-  {
-    id: 6,
-    name: "Yeast Pack",
-    description: "Active dry yeast for bread and pizza dough",
-    price: 35,
-    originalPrice: null,
-    unit: "50g",
-    inStock: true,
-    image: "/placeholder.svg"
+    image: "/products/frozen/Chocolate-Mousse-Instant-Dessert-Mix.jpg"
   }
 ];
 
