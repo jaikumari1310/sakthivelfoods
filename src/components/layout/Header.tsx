@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ShoppingBasket } from "lucide-react";
+import { Menu, X, ShoppingBasket, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteContent } from "@/data/siteContent";
+import { useCart } from "@/contexts/CartContext";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -14,6 +15,8 @@ const navLinks = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { getTotalItems } = useCart();
+  const cartCount = getTotalItems();
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -47,20 +50,33 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
-        </Button>
+        {/* Cart & Mobile Menu */}
+        <div className="flex items-center gap-2">
+          <Link to="/cart">
+            <Button variant="ghost" size="icon" className="relative">
+              <ShoppingCart className="h-5 w-5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-secondary text-secondary-foreground text-xs font-bold flex items-center justify-center">
+                  {cartCount > 99 ? "99+" : cartCount}
+                </span>
+              )}
+            </Button>
+          </Link>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -81,6 +97,18 @@ export function Header() {
                 {link.name}
               </Link>
             ))}
+            <Link
+              to="/cart"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`px-4 py-3 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${
+                isActive("/cart")
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground hover:bg-muted"
+              }`}
+            >
+              <ShoppingCart className="h-4 w-4" />
+              Cart {cartCount > 0 && `(${cartCount})`}
+            </Link>
           </nav>
         </div>
       )}
