@@ -1,3 +1,4 @@
+import { CategoryHero } from "@/components/CategoryHero";
 import { Layout } from "@/components/layout/Layout";
 import { PageHeader } from "@/components/PageHeader";
 import { ProductGrid } from "@/components/ProductGrid";
