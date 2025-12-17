@@ -61,7 +61,7 @@ export const frozenFoodsProducts = [
     originalPrice: 150,
     unit: "500g",
     inStock: true,
-    image: "/placeholder.svg"
+    image: "/products/frozen/mixedveg.jpg"
   },
   {
     id: 2,
@@ -81,7 +81,7 @@ export const frozenFoodsProducts = [
     originalPrice: 320,
     unit: "450g",
     inStock: true,
-    image: "/placeholder.svg"
+    image: "/products/frozen/chicken-nuggets.jpeg"
   },
   {
     id: 4,
