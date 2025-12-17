@@ -17,7 +17,7 @@ export const siteContent = {
 
   // Enquiry configuration - update these with your actual details
   enquiry: {
-    whatsappNumber: "+919876543210", // WhatsApp Business number
+    whatsappNumber: "+918122151563", // WhatsApp Business number
     email: "orders@sakthivelfoods.com" // Email for enquiries
   },
 
