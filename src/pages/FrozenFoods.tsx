@@ -18,7 +18,7 @@ const FrozenFoods = () => {
       />
 
       <section className="container py-8 md:py-12">
-        <ProductGrid products={frozenFoodsProducts} />
+        <ProductGrid products={frozenFoodsProducts} category="frozen-foods" />
       </section>
     </Layout>
   );

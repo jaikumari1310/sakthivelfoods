@@ -3,6 +3,7 @@ import { ProductCard } from "./ProductCard";
 interface Product {
   id: number;
   name: string;
+  description: string;
   price: number;
   originalPrice: number | null;
   unit: string;
@@ -12,9 +13,10 @@ interface Product {
 
 interface ProductGridProps {
   products: Product[];
+  category: string;
 }
 
-export function ProductGrid({ products }: ProductGridProps) {
+export function ProductGrid({ products, category }: ProductGridProps) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
       {products.map((product, index) => (
@@ -23,7 +25,7 @@ export function ProductGrid({ products }: ProductGridProps) {
           className="animate-fade-in"
           style={{ animationDelay: `${index * 0.05}s` }}
         >
-          <ProductCard product={product} />
+          <ProductCard product={product} category={category} />
         </div>
       ))}
     </div>
