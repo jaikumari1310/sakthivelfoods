@@ -9,7 +9,7 @@ export const siteContent = {
   description: "Quality groceries at affordable prices since 1995",
   
   contact: {
-    phone: "+91 98765 43210",
+    phone: "+91 81221 51563",
     email: "info@sakthivelfoods.com",
     address: "123 Market Street, Chennai, Tamil Nadu 600001",
     hours: "Mon-Sat: 8AM - 9PM, Sun: 9AM - 6PM"
