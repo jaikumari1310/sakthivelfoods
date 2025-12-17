@@ -134,7 +134,7 @@ export const bakingEssentialsProducts = [
     originalPrice: null,
     unit: "1kg",
     inStock: true,
-    image: "/products/frozen/All-Purpose-Flour-Unbleached-5-Kg.jpg"
+    image: "/products/baking/All-Purpose-Flour-Unbleached-5-Kg.jpg"
   },
   {
     id: 2,
@@ -144,7 +144,7 @@ export const bakingEssentialsProducts = [
     originalPrice: null,
     unit: "1kg",
     inStock: true,
-    image: "/products/frozen/Granulated-Sugar-1kg.jpg"
+    image: "/products/baking/Granulated-Sugar-1kg.jpg"
   },
   {
     id: 3,
@@ -154,7 +154,7 @@ export const bakingEssentialsProducts = [
     originalPrice: 55,
     unit: "100g",
     inStock: true,
-    image: "/products/frozen/baking-powrder.jpg"
+    image: "/products/baking/baking-powrder.jpg"
   },
   {
     id: 4,
@@ -164,7 +164,7 @@ export const bakingEssentialsProducts = [
     originalPrice: null,
     unit: "200g",
     inStock: true,
-    image: "/products/frozen/Chocolate-Mousse-Instant-Dessert-Mix.jpg"
+    image: "/products/baking/Chocolate-Mousse-Instant-Dessert-Mix.jpg"
   }
 ];
 
