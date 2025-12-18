@@ -23,9 +23,10 @@ export const siteContent = {
 
   // UPI Payment configuration
   upi: {
-    id: "sakthivelfoods@upi", // Your UPI ID
-    name: "Sakthivel Foods", // Display name for UPI
-    merchantCode: "" // Optional merchant code
+    id: "jaikumar.i1310@okhdfcbank", // Your UPI ID
+    name: "Jai Kumar", // Display name for UPI
+    merchantCode: "", // Optional merchant code
+    qrImage: "/GooglePay_QR.png" // Static QR code image
   },
 
   hero: {
