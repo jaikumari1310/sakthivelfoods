@@ -199,6 +199,18 @@ export default function UPIPayment() {
                   <Smartphone className="h-4 w-4" />
                   <span>Scan with any UPI app</span>
                 </div>
+                
+                <div className="mt-4 pt-4 border-t border-border">
+                  <p className="text-sm text-muted-foreground mb-3">Or pay directly from your phone</p>
+                  <Button
+                    onClick={() => window.location.href = generateUPIString()}
+                    className="w-full"
+                    size="lg"
+                  >
+                    <Smartphone className="h-5 w-5 mr-2" />
+                    Pay via UPI App
+                  </Button>
+                </div>
               </div>
 
               {/* Order Summary */}
