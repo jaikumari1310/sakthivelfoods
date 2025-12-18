@@ -19,7 +19,6 @@ import {
   Clock
 } from "lucide-react";
 import { toast } from "sonner";
-import { QRCodeSVG } from "qrcode.react";
 
 export default function UPIPayment() {
   const navigate = useNavigate();
@@ -181,12 +180,11 @@ export default function UPIPayment() {
               {/* QR Code */}
               <div className="rounded-lg border border-border bg-card p-6 text-center">
                 <h2 className="font-semibold text-foreground mb-4">Scan to Pay</h2>
-                <div className="inline-block p-4 bg-white rounded-lg">
-                  <QRCodeSVG 
-                    value={generateUPIString()} 
-                    size={180}
-                    level="H"
-                    includeMargin={false}
+                <div className="inline-block bg-white rounded-lg overflow-hidden">
+                  <img 
+                    src={siteContent.upi.qrImage} 
+                    alt="UPI QR Code"
+                    className="w-[220px] h-auto"
                   />
                 </div>
                 <div className="mt-4 space-y-2">
