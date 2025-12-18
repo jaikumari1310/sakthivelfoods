@@ -47,6 +47,7 @@ export function ProductCard({ product, category }: ProductCardProps) {
         description: product.description,
         unit: product.unit,
         image: product.image,
+        price: product.price,
       },
       quantity
     );

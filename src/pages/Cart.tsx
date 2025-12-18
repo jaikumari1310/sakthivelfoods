@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { Plus, Minus, Trash2, ShoppingCart, Send } from "lucide-react";
+import { Plus, Minus, Trash2, ShoppingCart, Send, Smartphone } from "lucide-react";
 
 export default function Cart() {
   const { items, updateQuantity, removeFromCart, getTotalItems } = useCart();
@@ -129,13 +129,27 @@ export default function Cart() {
                   <span>Total Items</span>
                   <span>{getTotalItems()}</span>
                 </div>
+                <div className="flex justify-between text-foreground mt-2">
+                  <span>Estimated Total</span>
+                  <span className="font-semibold">
+                    ₹{items.reduce((total, item) => total + (item.price * item.quantity), 0)}
+                  </span>
+                </div>
               </div>
-              <Link to="/enquiry" className="block">
-                <Button className="w-full" size="lg">
-                  <Send className="h-4 w-4 mr-2" />
-                  Send Enquiry
-                </Button>
-              </Link>
+              <div className="space-y-3">
+                <Link to="/upi-payment" className="block">
+                  <Button className="w-full" size="lg">
+                    <Smartphone className="h-4 w-4 mr-2" />
+                    Pay with UPI
+                  </Button>
+                </Link>
+                <Link to="/enquiry" className="block">
+                  <Button variant="outline" className="w-full" size="lg">
+                    <Send className="h-4 w-4 mr-2" />
+                    Enquiry Only
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

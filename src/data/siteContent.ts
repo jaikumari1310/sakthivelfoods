@@ -21,6 +21,13 @@ export const siteContent = {
     email: "orders@sakthivelfoods.com" // Email for enquiries
   },
 
+  // UPI Payment configuration
+  upi: {
+    id: "sakthivelfoods@upi", // Your UPI ID
+    name: "Sakthivel Foods", // Display name for UPI
+    merchantCode: "" // Optional merchant code
+  },
+
   hero: {
     title: "Fresh Quality, Every Day",
     subtitle: "Discover our wide range of frozen foods, baking essentials, and dairy products at unbeatable prices.",
