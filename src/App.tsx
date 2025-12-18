@@ -10,6 +10,7 @@ import BakingEssentials from "./pages/BakingEssentials";
 import DairyProducts from "./pages/DairyProducts";
 import Cart from "./pages/Cart";
 import Enquiry from "./pages/Enquiry";
+import UPIPayment from "./pages/UPIPayment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/dairy-products" element={<DairyProducts />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/enquiry" element={<Enquiry />} />
+            <Route path="/upi-payment" element={<UPIPayment />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
