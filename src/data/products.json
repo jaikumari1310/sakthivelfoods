@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Mixed Vegetable Pack",
       "description": "Premium blend of carrots, beans, peas and corn",
-      "price": 1,
+      "price": 10,
       "originalPrice": 150,
       "unit": "500g",
       "inStock": true,
