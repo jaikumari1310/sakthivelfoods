@@ -34,14 +34,14 @@ export function AdminPage() {
       const text = e.target?.result as string;
       const lines = text.split("\n").filter(line => line.trim() !== '');
       if (lines.length < 2) {
-        setJsonOutput("CSV must have a header row and at least one data row.");
+        setJsonOutput("Data file must have a header row and at least one data row.");
         return;
       }
 
-      const headers = lines[0].split(",").map(h => h.trim());
+      const headers = lines[0].split("|").map(h => h.trim());
       const products = lines.slice(1).map(line => {
         const obj: { [key: string]: any } = {};
-        const currentline = line.split(",");
+        const currentline = line.split("|");
         headers.forEach((header, i) => {
           let value: any = currentline[i] ? currentline[i].trim() : '';
           if (['id', 'price', 'originalPrice'].includes(header) && value) {
@@ -117,12 +117,12 @@ export function AdminPage() {
       <div className="container py-12">
         <Card>
           <CardHeader>
-            <CardTitle>Upload Product CSV</CardTitle>
+            <CardTitle>Upload Product Data</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Input type="file" accept=".csv" onChange={handleFileUpload} />
+            <Input type="file" accept=".csv,.txt" onChange={handleFileUpload} />
             <p className="text-sm text-muted-foreground">
-              Upload a CSV file with product data. The first row should be the headers (e.g., id, name, description, price, originalPrice, unit, inStock, image, category).
+              Upload a pipe-separated (|) file. The first row should be the headers (e.g., id|name|description|price|originalPrice|unit|inStock|image|category).
             </p>
             {jsonOutput && (
               <Textarea
