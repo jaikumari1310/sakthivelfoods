@@ -6,8 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-// A simple password to protect the admin page.
-// In a real application, you would use a proper authentication system.
 const ADMIN_PASSWORD = "password";
 
 export function AdminPage() {
@@ -15,6 +13,7 @@ export function AdminPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [jsonOutput, setJsonOutput] = useState("");
+  const [status, setStatus] = useState("");
 
   const handleLogin = () => {
     if (password === ADMIN_PASSWORD) {
@@ -77,7 +76,6 @@ export function AdminPage() {
             finalJson.dairyProducts.push(productData);
             break;
           default:
-            // You might want to handle products with unknown categories
             break;
         }
       });
@@ -85,6 +83,35 @@ export function AdminPage() {
       setJsonOutput(JSON.stringify(finalJson, null, 2));
     };
     reader.readAsText(file);
+  };
+
+  const handleUpdateAndDeploy = async () => {
+    if (!jsonOutput) {
+      setStatus("No JSON data to deploy.");
+      return;
+    }
+
+    setStatus("Updating products.json and triggering deployment...");
+
+    try {
+      const response = await fetch('/api/update-products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ jsonData: JSON.parse(jsonOutput) }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setStatus(`Success: ${result.message}`);
+      } else {
+        setStatus(`Error: ${result.message}`);
+      }
+    } catch (err: any) {
+      setStatus(`An unexpected error occurred: ${err.message}`);
+    }
   };
 
   if (!isAuthenticated) {
@@ -125,12 +152,16 @@ export function AdminPage() {
               Upload a pipe-separated (|) file. The first row should be the headers (e.g., id|name|description|price|originalPrice|unit|inStock|image|category).
             </p>
             {jsonOutput && (
-              <Textarea
-                readOnly
-                rows={20}
-                className="w-full p-2 font-mono text-sm bg-muted"
-                value={jsonOutput}
-              />
+              <div className="space-y-4">
+                <Textarea
+                  readOnly
+                  rows={20}
+                  className="w-full p-2 font-mono text-sm bg-muted"
+                  value={jsonOutput}
+                />
+                <Button onClick={handleUpdateAndDeploy}>Update & Deploy</Button>
+                {status && <p className="text-sm text-muted-foreground p-2 rounded-md bg-slate-100">{status}</p>}
+              </div>
             )}
           </CardContent>
         </Card>
