@@ -6,21 +6,19 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const ADMIN_PASSWORD = "password";
-
 export function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [password, setPassword] = useState("");
+  const [apiKey, setApiKey] = useState("");
   const [error, setError] = useState("");
   const [jsonOutput, setJsonOutput] = useState("");
   const [status, setStatus] = useState("");
 
   const handleLogin = () => {
-    if (password === ADMIN_PASSWORD) {
+    if (apiKey) {
       setIsAuthenticated(true);
       setError("");
     } else {
-      setError("Invalid password. Please try again.");
+      setError("Please enter an API Key.");
     }
   };
 
@@ -99,7 +97,7 @@ export function AdminPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ jsonData: JSON.parse(jsonOutput) }),
+        body: JSON.stringify({ jsonData: JSON.parse(jsonOutput), apiKey }),
       });
 
       const result = await response.json();
@@ -125,9 +123,9 @@ export function AdminPage() {
             <CardContent className="space-y-4">
               <Input
                 type="password"
-                placeholder="Enter password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter API Key"
+                value={apiKey}
+                onChange={(e) => setApiKey(e.target.value)}
               />
               <Button onClick={handleLogin}>Login</Button>
               {error && <p className="text-red-500">{error}</p>}
