@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import FrozenFoods from "./pages/FrozenFoods";
 import BakingEssentials from "./pages/BakingEssentials";
 import DairyProducts from "./pages/DairyProducts";
+import ReadyToFryVeg from "./pages/ReadyToFryVeg";
 import Cart from "./pages/Cart";
 import Enquiry from "./pages/Enquiry";
 import UPIPayment from "./pages/UPIPayment";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/frozen-foods" element={<FrozenFoods />} />
             <Route path="/baking-essentials" element={<BakingEssentials />} />
             <Route path="/dairy-products" element={<DairyProducts />} />
+            <Route path="/ready-to-fry-veg" element={<ReadyToFryVeg />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/enquiry" element={<Enquiry />} />
             <Route path="/upi-payment" element={<UPIPayment />} />

@@ -1,6 +1,7 @@
 import frozenFoodsImg from "@/assets/frozen-foods.jpg";
 import bakingEssentialsImg from "@/assets/baking-essentials.jpg";
 import dairyProductsImg from "@/assets/dairy-products.jpg";
+import readyToFryVegImg from "@/assets/ready-to-fry-veg.jpg";
 import productsData from "./products.json";
 
 // Site-wide content - easy to update
@@ -38,6 +39,13 @@ export const siteContent = {
 
   categories: [
     {
+      id: "ready-to-fry-veg",
+      name: "Ready to Fry Frozen Products - Veg",
+      description: "Delicious and convenient vegetarian snacks, ready in minutes.",
+      image: readyToFryVegImg,
+      href: "/ready-to-fry-veg"
+    },
+    {
       id: "frozen-foods",
       name: "Frozen Foods",
       description: "Ready-to-cook meals, vegetables, and ice cream",
@@ -61,4 +69,4 @@ export const siteContent = {
   ]
 };
 
-export const { frozenFoodsProducts, bakingEssentialsProducts, dairyProducts } = productsData;
+export const { frozenFoodsProducts, bakingEssentialsProducts, dairyProducts, readyToFryVegProducts } = productsData;
