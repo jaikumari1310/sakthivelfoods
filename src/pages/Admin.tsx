@@ -122,7 +122,7 @@ export function AdminPage() {
           <CardContent className="space-y-4">
             <Input type="file" accept=".csv" onChange={handleFileUpload} />
             <p className="text-sm text-muted-foreground">
-              Upload a CSV file with product data. The first row should be the headers (e.g., id, name, description, price, unit, inStock, image, category).
+              Upload a CSV file with product data. The first row should be the headers (e.g., id, name, description, price, originalPrice, unit, inStock, image, category).
             </p>
             {jsonOutput && (
               <Textarea
