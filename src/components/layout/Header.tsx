@@ -5,12 +5,7 @@ import { Button } from "@/components/ui/button";
 import { siteContent } from "@/data/siteContent";
 import { useCart } from "@/contexts/CartContext";
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Frozen Foods", href: "/frozen-foods" },
-  { name: "Baking Essentials", href: "/baking-essentials" },
-  { name: "Dairy Products", href: "/dairy-products" },
-];
+const navLinks = siteContent.categories.map(category => ({ name: category.name, href: category.href }));
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
