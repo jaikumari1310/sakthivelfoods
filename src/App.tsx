@@ -11,6 +11,7 @@ import DairyProducts from "./pages/DairyProducts";
 import Cart from "./pages/Cart";
 import Enquiry from "./pages/Enquiry";
 import UPIPayment from "./pages/UPIPayment";
+import { AdminPage } from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/cart" element={<Cart />} />
             <Route path="/enquiry" element={<Enquiry />} />
             <Route path="/upi-payment" element={<UPIPayment />} />
+            <Route path="/admin" element={<AdminPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
