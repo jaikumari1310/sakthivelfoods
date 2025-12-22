@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, ShoppingBasket } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { siteContent } from "@/data/siteContent";
 
 export function Footer() {
@@ -12,9 +12,11 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <ShoppingBasket className="h-5 w-5 text-primary-foreground" />
-              </div>
+              <img
+                src="/business-logo1.jpeg"
+                alt={`${siteName} Logo`}
+                className="h-10 w-10 rounded-lg object-cover"
+              />
               <span className="text-lg font-bold">{siteName}</span>
             </Link>
             <p className="text-sm text-background/70">
