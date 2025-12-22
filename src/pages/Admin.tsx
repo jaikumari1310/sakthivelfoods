@@ -32,33 +32,55 @@ export function AdminPage() {
     const reader = new FileReader();
     reader.onload = (e) => {
       const text = e.target?.result as string;
-      // This is a simplified CSV to JSON conversion.
-      // It assumes a header row and comma-separated values.
-      const lines = text.split("\n");
-      const headers = lines[0].split(",");
-      const result = lines.slice(1).map(line => {
+      const lines = text.split("\n").filter(line => line.trim() !== '');
+      if (lines.length < 2) {
+        setJsonOutput("CSV must have a header row and at least one data row.");
+        return;
+      }
+
+      const headers = lines[0].split(",").map(h => h.trim());
+      const products = lines.slice(1).map(line => {
         const obj: { [key: string]: any } = {};
         const currentline = line.split(",");
         headers.forEach((header, i) => {
-          let value: any = currentline[i];
-          // Attempt to convert to number if it looks like a number
-          if (!isNaN(value) && value.trim() !== '') {
+          let value: any = currentline[i] ? currentline[i].trim() : '';
+          if (['id', 'price', 'originalPrice'].includes(header) && value) {
             value = Number(value);
-          } else if (value === 'true' || value === 'false') {
-             value = value === 'true';
+          } else if (header === 'inStock') {
+            value = value.toLowerCase() === 'true';
+          } else if (header === 'originalPrice' && !value) {
+            value = null;
           }
-          obj[header.trim()] = value;
+          obj[header] = value;
         });
         return obj;
       });
 
-      // This is a simplified example. In a real app, you would have separate
-      // sections for each product category.
-      const finalJson = {
-        frozenFoodsProducts: result,
+      const finalJson: { [key: string]: any[] } = {
+        frozenFoodsProducts: [],
         bakingEssentialsProducts: [],
-        dairyProducts: []
-      }
+        dairyProducts: [],
+      };
+
+      products.forEach(product => {
+        if (!product.category) return;
+        const { category, ...productData } = product;
+
+        switch (product.category) {
+          case 'frozen-foods':
+            finalJson.frozenFoodsProducts.push(productData);
+            break;
+          case 'baking-essentials':
+            finalJson.bakingEssentialsProducts.push(productData);
+            break;
+          case 'dairy-products':
+            finalJson.dairyProducts.push(productData);
+            break;
+          default:
+            // You might want to handle products with unknown categories
+            break;
+        }
+      });
 
       setJsonOutput(JSON.stringify(finalJson, null, 2));
     };
@@ -100,7 +122,7 @@ export function AdminPage() {
           <CardContent className="space-y-4">
             <Input type="file" accept=".csv" onChange={handleFileUpload} />
             <p className="text-sm text-muted-foreground">
-              Upload a CSV file with product data. The first row should be the headers (e.g., id, name, description, price, unit, inStock, image).
+              Upload a CSV file with product data. The first row should be the headers (e.g., id, name, description, price, unit, inStock, image, category).
             </p>
             {jsonOutput && (
               <Textarea
